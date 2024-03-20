@@ -54,9 +54,9 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
 
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow row1 = new KeyboardRow();
-        row1.add(BOTTON1);
+        row1.add(GET_INFO);
         KeyboardRow row2 = new KeyboardRow();
-        row2.add(BOTTON2);
+        row2.add(SETTNGS);
 
         keyboard.add(row1);
         keyboard.add(row2);
