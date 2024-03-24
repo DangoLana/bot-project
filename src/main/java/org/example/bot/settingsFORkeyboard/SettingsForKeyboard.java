@@ -12,6 +12,7 @@ import org.example.model.UserSettings;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.quartz.SchedulerException;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
@@ -39,6 +40,10 @@ public class SettingsForKeyboard  {
     private UserSettings.ChoiceBank selectedBank = UserSettings.ChoiceBank.NBU;
     private final UserSettings.Currency selectedCurrency = UserSettings.Currency.USD;
     private final Set<UserSettings.Currency> selectedCurrencies = new HashSet<>();
+
+    private final SendMessageOnTime sendMessageOnTime = new SendMessageOnTime();
+
+    UserSettings userSettings = new UserSettings();
 
 
     private String fetchDataFromUrl(String url) throws IOException {
@@ -125,6 +130,13 @@ public class SettingsForKeyboard  {
         message.setChatId(String.valueOf(chatId));
         message.setText("Select notification time");
         message.setReplyMarkup(createNotificationTimeKeyboard());
+
+        try {
+            sendMessageOnTime.sendMessageByTime(userSettings.getNotificationTime(), Long.valueOf(chatId));
+        } catch (SchedulerException e) {
+            throw new RuntimeException(e);
+        }
+
 
         try {
             bot.execute(message);
