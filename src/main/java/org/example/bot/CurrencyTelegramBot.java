@@ -1,6 +1,8 @@
 package org.example.bot;
 
 
+
+import org.example.settingsFORkeyboard.SettingsForKeyboard;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.SneakyThrows;
@@ -13,10 +15,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.example.utils.ConstantData.*;
 
 @EqualsAndHashCode(callSuper = true)
@@ -53,7 +53,7 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
         } else if (isMessagePresent(update)) {
 
             String text = update.getMessage().getText();
-
+            System.out.println("text = " + text);
             switch (text) {
 
                 case "Get Info": {
@@ -71,14 +71,44 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     break;
                 }
                 case "Bank":
-                    // Відправте повідомлення для вибору банку
+
+               {
+                    settingsForKeyboard.sendBankSettings(chatId);
+                    break;
+                }
+                case "NBU":
+                case "PrivatBank":
+                case "MonoBank":{
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;}
+                case "Currency": {
+                    settingsForKeyboard.sendCurrencySettings(chatId);
+                    break;
+                }
+                case "USD": {
+                    settingsForKeyboard.addCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "EUR": {
+                  settingsForKeyboard.addCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "Remove USD": {
+                    settingsForKeyboard.removeCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "Remove EUR": {
+                   settingsForKeyboard.removeCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.sendExchangeRates(chatId);                   
                     settingsForKeyboard.sendBankSettings(chatId);
                     break;
 
                 case "Currency":
-                    // Відправте повідомлення для вибору валюти
                     settingsForKeyboard.sendCurrencySettings(chatId);
-                    break;
+                     break;
                 case "USD": {
                     currencyService.addCurrency(UserSettings.Currency.USD);
                     UserSettings newSettings = new UserSettings();

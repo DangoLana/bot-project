@@ -29,6 +29,7 @@ public class UserSettings  {
         MONOBANK
 
 
+
     }
     public enum DecimalPlaces {
         TWO,
