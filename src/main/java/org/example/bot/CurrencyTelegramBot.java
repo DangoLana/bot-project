@@ -1,6 +1,9 @@
 package org.example.bot;
 
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.SneakyThrows;
 import org.example.bot.settingsFORkeyboard.SettingsForKeyboard;
 import org.example.model.UserSettings;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -15,14 +18,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.example.utils.ConstantData.*;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class CurrencyTelegramBot extends TelegramLongPollingBot {
 
     private final SettingsForKeyboard settingsForKeyboard;
+    private final CurrencyService currencyService;
+    private final BankService bankService;
+    private final NumberForDecimalPlaces numberForDecimalPlaces;
 
     public CurrencyTelegramBot() {
         this.settingsForKeyboard = new SettingsForKeyboard(this);
+        this.currencyService = new CurrencyService(this);
+        this.bankService = new BankService(this);
+        this.numberForDecimalPlaces = new NumberForDecimalPlaces(this);
     }
 
+    @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
         SendMessage message = new SendMessage();
@@ -42,8 +55,8 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
             String text = update.getMessage().getText();
 
             switch (text) {
+
                 case "Get Info": {
-                    settingsForKeyboard.sendStartMessage(chatId);
                     settingsForKeyboard.sendExchangeRates(chatId);
                     break;
                 }
@@ -58,28 +71,105 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     break;
                 }
                 case "Bank":
-                case "NBU":
-                case "PrivatBank":
-                case "MonoBank": {
+                    // Відправте повідомлення для вибору банку
                     settingsForKeyboard.sendBankSettings(chatId);
                     break;
-                }
+
                 case "Currency":
-                case "USD":
-                case "EUR": {
+                    // Відправте повідомлення для вибору валюти
                     settingsForKeyboard.sendCurrencySettings(chatId);
+                    break;
+                case "USD": {
+                    currencyService.addCurrency(UserSettings.Currency.USD);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "EUR": {
+                    currencyService.addCurrency(UserSettings.Currency.EUR);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove USD": {
+                    currencyService.removeCurrency(UserSettings.Currency.USD);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove EUR": {
+                    currencyService.removeCurrency(UserSettings.Currency.EUR);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "PrivatBank": {
+                    bankService.addBank(UserSettings.ChoiceBank.PRIVATBANK);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setBanks(UserSettings.ChoiceBank.PRIVATBANK);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "MonoBank": {
+                    bankService.addBank(UserSettings.ChoiceBank.MONOBANK);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setBanks(UserSettings.ChoiceBank.MONOBANK);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+
+                }
+                case "NBU": {
+                    bankService.addBank(UserSettings.ChoiceBank.NBU);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setBanks(UserSettings.ChoiceBank.NBU);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove MonoBank": {
+                    bankService.removeBank(UserSettings.ChoiceBank.MONOBANK);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove PrivatBank": {
+                    bankService.removeBank(UserSettings.ChoiceBank.PRIVATBANK);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove NBU": {
+                    bankService.removeBank(UserSettings.ChoiceBank.NBU);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
                     break;
                 }
                 case "Notification time": {
                     settingsForKeyboard.sendNotificationTimeSettings(chatId);
                     break;
                 }
-                case "2":
-                case "3":
-                case "4": {
-
-                    settingsForKeyboard.createSignAfterCommaKeyboard();
+                case "2": {
+                    numberForDecimalPlaces.addDecimalPlaces(UserSettings.DecimalPlaces.TWO);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setDecimalPlaces(UserSettings.DecimalPlaces.TWO);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
                     break;
+                }
+                case "3": {
+                    numberForDecimalPlaces.addDecimalPlaces(UserSettings.DecimalPlaces.THREE);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setDecimalPlaces(UserSettings.DecimalPlaces.THREE);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "4": {
+                    numberForDecimalPlaces.addDecimalPlaces(UserSettings.DecimalPlaces.FOUR);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setDecimalPlaces(UserSettings.DecimalPlaces.FOUR);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+
                 }
                 case "9":
                 case "10":
@@ -115,7 +205,7 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
         return BOT_TOKEN;
     }
 
-    public static boolean isMessagePresent(Update update){
+    public static boolean isMessagePresent(Update update) {
         return update.hasMessage() && update.getMessage().hasText();
     }
 

@@ -2,8 +2,11 @@ package org.example.utils;
 
 public class ConstantData {
 
-    public static final String BOT_NAME = "BotOkCurrency";
-    public static final String BOT_TOKEN = "6463060111:AAHZEeU6qiUcLTZbXJ-_3PR_SSAJBNyqhsI";
+    public static final String BOT_NAME = "BotBotCurrencyBotBot";
+    public static final String BOT_TOKEN = "6484255908:AAG9o6qItoemmvgkfJxfWozlG8bxb8LupFA";
+
+
+
     public static final String BOT_COMMAND_START = "/start";
     public static final String BOT_COMMAND_GREETING = "Welcome! This bot will help you track current exchange rates";
     public static final String GET_INFO = "Get Info";
