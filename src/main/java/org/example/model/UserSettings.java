@@ -37,7 +37,8 @@ public class UserSettings  {
     public enum ChoiceBank {
         NBU,
         PrivatBank,
-        MonoBank
+        MonoBank;
+
 
 
     }

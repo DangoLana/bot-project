@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/SettingsForKeyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonMB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonNBU.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonPB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/settingsFORkeyboard/NumberForDecimalPlaces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/SettingsForKeyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/settingsFORkeyboard/SettingsForKeyboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/UserSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ConstantData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ConstantData.java" afterDir="false" />
     </list>
@@ -28,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,7 +48,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-core-17/currency-telegram-bot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="TelegramBotApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -100,5 +93,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

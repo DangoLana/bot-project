@@ -1,7 +1,7 @@
 package org.example.bot;
 
 
-import org.example.bot.settingsFORkeyboard.SettingsForKeyboard;
+import org.example.settingsFORkeyboard.SettingsForKeyboard;
 import org.example.model.UserSettings;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -40,10 +40,9 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
         } else if (isMessagePresent(update)) {
 
             String text = update.getMessage().getText();
-
+            System.out.println("text = " + text);
             switch (text) {
                 case "Get Info": {
-                    settingsForKeyboard.sendStartMessage(chatId);
                     settingsForKeyboard.sendExchangeRates(chatId);
                     break;
                 }
@@ -58,16 +57,37 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     break;
                 }
                 case "Bank":
-                case "NBU":
-                case "PrivatBank":
-                case "MonoBank": {
+               {
                     settingsForKeyboard.sendBankSettings(chatId);
                     break;
                 }
-                case "Currency":
-                case "USD":
-                case "EUR": {
+                case "NBU":
+                case "PrivatBank":
+                case "MonoBank":{
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;}
+                case "Currency": {
                     settingsForKeyboard.sendCurrencySettings(chatId);
+                    break;
+                }
+                case "USD": {
+                    settingsForKeyboard.addCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "EUR": {
+                  settingsForKeyboard.addCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "Remove USD": {
+                    settingsForKeyboard.removeCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.sendExchangeRates(chatId);
+                    break;
+                }
+                case "Remove EUR": {
+                   settingsForKeyboard.removeCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.sendExchangeRates(chatId);
                     break;
                 }
                 case "Notification time": {
