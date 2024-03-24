@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserSettings  {
-    private int decimalPlaces;
+    private DecimalPlaces decimalPlaces;
     private Currency currency;
     private ChoiceBank banks;
     private int notificationTime;
@@ -12,21 +12,10 @@ public class UserSettings  {
 
     // Ініціалізація полів за замовчуванням, якщо юзер ше не вибрав
     public UserSettings() {
-        // Ініціалізуємо всі поля дефолтними значеннями
-        decimalPlaces = 2;
+        decimalPlaces = DecimalPlaces.TWO;
         currency = Currency.USD;
         banks = ChoiceBank.NBU;
         notificationTime = 9;
-    }
-
-
-    public ChoiceBank getSelectedBank() {
-        return banks;
-    }
-
-
-    public Currency getSelectedCurrency() {
-        return currency;
     }
 
     public enum Currency {
@@ -36,10 +25,16 @@ public class UserSettings  {
 
     public enum ChoiceBank {
         NBU,
-        PrivatBank,
-        MonoBank;
+        PRIVATBANK,
+        MONOBANK
 
 
+
+    }
+    public enum DecimalPlaces {
+        TWO,
+        THREE,
+        FOUR
 
     }
 }
