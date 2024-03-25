@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.example.bot.settingsFORkeyboard.Notify.SendMessageOnTime;
 import org.example.json.JsonMB;
 import org.example.bot.CurrencyTelegramBot;
 import org.example.json.JsonPB;
@@ -125,14 +126,13 @@ public class SettingsForKeyboard  {
         return keyboardMarkup;
     }
 
-    public void sendNotificationTimeSettings(String chatId) {
+    public void sendNotificationTimeSettings(String chatId, String text) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
-        message.setText("Select notification time");
-        message.setReplyMarkup(createNotificationTimeKeyboard());
+        message.setText("Get currency rates at " + text + ":00");
 
         try {
-            sendMessageOnTime.sendMessageByTime(userSettings.getNotificationTime(), Long.valueOf(chatId));
+            sendMessageOnTime.sendMessageByTime(Integer.parseInt(text), Long.valueOf(chatId));
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
         }
@@ -145,7 +145,39 @@ public class SettingsForKeyboard  {
         }
     }
 
-    private ReplyKeyboardMarkup createNotificationTimeKeyboard() {
+    public void deletJob(String chatId){
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText("Turn off the message");
+
+        try {
+            sendMessageOnTime.deleteJob();
+        } catch (SchedulerException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            bot.execute(message);
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void createKeyBordTime(String chatId){
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText("Select notification time");
+        message.setReplyMarkup(createNotificationTimeKeyboard());
+
+        try {
+            bot.execute(message);
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ReplyKeyboardMarkup createNotificationTimeKeyboard() {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
 
@@ -297,6 +329,77 @@ public class SettingsForKeyboard  {
         } catch (IOException | TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    public String sendExchangeRatesWithStr(String chatId) {
+        String result = null;
+            String data;
+            String bankUrl;
+            if (selectedBank == UserSettings.ChoiceBank.PrivatBank) {
+                bankUrl = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
+            } else {
+                bankUrl = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json";
+            }
+        try {
+            data = fetchDataFromUrl(bankUrl);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        String rates;
+            if (selectedBank == UserSettings.ChoiceBank.PrivatBank) {
+                rates = getPrivatBankExchangeRates(data);
+            } else {
+                rates = getNbuExchangeRates(data);
+            }
+
+            if (selectedBank == UserSettings.ChoiceBank.NBU && selectedCurrency == UserSettings.Currency.USD) {
+                Set<UserSettings.Currency> currenciesForNBU = new HashSet<>();
+                currenciesForNBU.add(UserSettings.Currency.USD);
+                currenciesForNBU.add(UserSettings.Currency.EUR);
+                for (UserSettings.Currency currency : currenciesForNBU) {
+                    if (currency.equals(UserSettings.Currency.USD)) {
+                        rates = filterExchangeRatesByCurrency(rates, currency);
+                    }
+                }
+            }
+            if (selectedBank == UserSettings.ChoiceBank.NBU && selectedCurrency == UserSettings.Currency.EUR) {
+                Set<UserSettings.Currency> currenciesForNBU = new HashSet<>();
+                currenciesForNBU.add(UserSettings.Currency.USD);
+                currenciesForNBU.add(UserSettings.Currency.EUR);
+                for (UserSettings.Currency currency : currenciesForNBU) {
+                    if (currency.equals(UserSettings.Currency.EUR)) {
+                        rates = filterExchangeRatesByCurrency(rates, currency);
+                    }
+                }
+            }
+            if (selectedBank ==UserSettings. ChoiceBank.PrivatBank  && selectedCurrency == UserSettings.Currency.USD) {
+                Set<UserSettings.Currency> currenciesForPB = new HashSet<>();
+                currenciesForPB.add(UserSettings.Currency.USD);
+                currenciesForPB.add(UserSettings.Currency.EUR);
+                for (UserSettings.Currency currency : currenciesForPB) {
+                    if (currency.equals(UserSettings.Currency.USD)) {
+                        rates = filterExchangeRatesByCurrency(rates, currency);
+                    }
+                }
+            }
+
+            if (selectedBank == UserSettings.ChoiceBank.PrivatBank && selectedCurrency == UserSettings.Currency.EUR) {
+                Set<UserSettings.Currency> currenciesForPB = new HashSet<>();
+                currenciesForPB.add(UserSettings.Currency.USD);
+                currenciesForPB.add(UserSettings.Currency.EUR);
+                for (UserSettings.Currency currency : currenciesForPB) {
+                    if (currency.equals(UserSettings.Currency.EUR)) {
+                        rates = filterExchangeRatesByCurrency(rates, currency);
+                    }
+                }
+            }
+            // Якщо умова не виконується, виводимо всі курси без фільтрації
+            String limitedRates = limitExchangeRates(rates);
+            String bankName = (selectedBank == UserSettings.ChoiceBank.PrivatBank) ? "PrivatBank" : "NBU";
+
+        result =  "Exchange rates data:Bank: " + bankName + limitedRates;
+        return result;
     }
 
     private String filterExchangeRatesByCurrency(String exchangeRates, UserSettings.Currency currency) {
