@@ -4,12 +4,15 @@ package org.example.settingsFORkeyboard;
 import lombok.Data;
 import org.example.bot.CurrencyTelegramBot;
 import org.example.model.UserSettings;
+import org.example.utils.ConstantData;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import java.io.IOException;
+
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
+
 import java.util.*;
 import java.util.List;
 
@@ -53,7 +56,7 @@ public class SettingsForKeyboard {
         }
     }
 
-    public ReplyKeyboard sendSettingsMenu(String chatId) {
+    public void sendSettingsMenu(String chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         message.setText("Menu");
@@ -63,7 +66,6 @@ public class SettingsForKeyboard {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
 
@@ -148,19 +150,6 @@ public class SettingsForKeyboard {
         }
     }
 
-    public void sendStartMessage(String chatId) {
-        SendMessage answer = new SendMessage();
-        answer.setChatId(String.valueOf(chatId));
-        answer.setText("Choose");
-        answer.setReplyMarkup(bot.setupBeginButton());
-        try {
-            bot.execute(answer);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void sendCurrencySettings(String chatId) {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
@@ -199,7 +188,7 @@ public class SettingsForKeyboard {
         row2.add("Remove PrivatBank");
         row2.add("Remove MonoBank");
         row3.add("Settings Menu");
-        row3.add("Get Info");
+        row3.add(ConstantData.GET_INFO);
         keyboard.add(row1);
         keyboard.add(row2);
         keyboard.add(row3);
@@ -208,7 +197,6 @@ public class SettingsForKeyboard {
         return keyboardMarkup;
     }
 
-    // Метод для створення клавіатури з відміченими налаштуваннями
     public ReplyKeyboardMarkup createSettingsMenuKeyboard() {
         ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
         List<KeyboardRow> keyboard = new ArrayList<>();
@@ -216,12 +204,12 @@ public class SettingsForKeyboard {
         KeyboardRow row2 = new KeyboardRow();
         KeyboardRow row3 = new KeyboardRow();
         KeyboardRow row4 = new KeyboardRow();
-        row1.add("Number of decimal places");
-        row2.add("Bank");
-        row2.add("Currency");
-        row3.add("Notification time");
-        row4.add("Settings Menu");
-        row4.add("Get Info");
+        row1.add(ConstantData.DECIMAL_PLACES);
+        row2.add(ConstantData.BANK);
+        row2.add(ConstantData.CURRENCY);
+        row3.add(ConstantData.NOTIFICATION_TIME);
+        row4.add(ConstantData.SETTNGS);
+        row4.add(ConstantData.GET_INFO);
         keyboard.add(row1);
         keyboard.add(row2);
         keyboard.add(row3);
@@ -239,8 +227,8 @@ public class SettingsForKeyboard {
         row1.add("2");
         row1.add("3");
         row1.add("4");
-        row2.add("Settings Menu");
-        row2.add("Get Info");
+        row2.add(ConstantData.SETTNGS);
+        row2.add(ConstantData.GET_INFO);
         keyboard.add(row1);
         keyboard.add(row2);
         keyboardMarkup.setKeyboard(keyboard);

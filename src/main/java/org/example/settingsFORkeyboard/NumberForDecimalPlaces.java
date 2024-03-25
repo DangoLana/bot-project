@@ -9,6 +9,7 @@ import org.example.model.UserSettings;
 import org.json.JSONObject;
 import java.text.DecimalFormat;
 import java.util.HashSet;
+import java.util.Set;
 
 
 @Data
@@ -42,7 +43,8 @@ public class NumberForDecimalPlaces {
 
     }
 
-    public String rateWithDecimalPlacesForMono(JsonMB rate, String format) {
+    public String rateWithDecimalPlacesForMono(JsonMB rate) {
+      String format = "";
         for (UserSettings.DecimalPlaces places : hashSetDecimalPlaces) {
             if (places == UserSettings.DecimalPlaces.TWO) {
                 DecimalFormat df = new DecimalFormat("#.00");

@@ -1,12 +1,12 @@
 package org.example.bot;
 
 
-
+import org.example.bank.BankService;
+import org.example.settingsFORkeyboard.NumberForDecimalPlaces;
 import org.example.settingsFORkeyboard.SettingsForKeyboard;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.SneakyThrows;
-import org.example.bot.settingsFORkeyboard.SettingsForKeyboard;
 import org.example.model.UserSettings;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -15,8 +15,10 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.example.utils.ConstantData.*;
 
 @EqualsAndHashCode(callSuper = true)
@@ -70,69 +72,8 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     settingsForKeyboard.sendSignAfterCommaSettings(chatId);
                     break;
                 }
-                case "Bank":
-
-               {
+                case "Bank": {
                     settingsForKeyboard.sendBankSettings(chatId);
-                    break;
-                }
-                case "NBU":
-                case "PrivatBank":
-                case "MonoBank":{
-                    settingsForKeyboard.sendExchangeRates(chatId);
-                    break;}
-                case "Currency": {
-                    settingsForKeyboard.sendCurrencySettings(chatId);
-                    break;
-                }
-                case "USD": {
-                    settingsForKeyboard.addCurrency(UserSettings.Currency.USD);
-                    settingsForKeyboard.sendExchangeRates(chatId);
-                    break;
-                }
-                case "EUR": {
-                  settingsForKeyboard.addCurrency(UserSettings.Currency.EUR);
-                    settingsForKeyboard.sendExchangeRates(chatId);
-                    break;
-                }
-                case "Remove USD": {
-                    settingsForKeyboard.removeCurrency(UserSettings.Currency.USD);
-                    settingsForKeyboard.sendExchangeRates(chatId);
-                    break;
-                }
-                case "Remove EUR": {
-                   settingsForKeyboard.removeCurrency(UserSettings.Currency.EUR);
-                    settingsForKeyboard.sendExchangeRates(chatId);                   
-                    settingsForKeyboard.sendBankSettings(chatId);
-                    break;
-
-                case "Currency":
-                    settingsForKeyboard.sendCurrencySettings(chatId);
-                     break;
-                case "USD": {
-                    currencyService.addCurrency(UserSettings.Currency.USD);
-                    UserSettings newSettings = new UserSettings();
-                    newSettings.setCurrency(UserSettings.Currency.USD);
-                    settingsForKeyboard.updateSettings(chatId, newSettings);
-                    break;
-                }
-                case "EUR": {
-                    currencyService.addCurrency(UserSettings.Currency.EUR);
-                    UserSettings newSettings = new UserSettings();
-                    newSettings.setCurrency(UserSettings.Currency.EUR);
-                    settingsForKeyboard.updateSettings(chatId, newSettings);
-                    break;
-                }
-                case "Remove USD": {
-                    currencyService.removeCurrency(UserSettings.Currency.USD);
-                    UserSettings newSettings = new UserSettings();
-                    settingsForKeyboard.updateSettings(chatId, newSettings);
-                    break;
-                }
-                case "Remove EUR": {
-                    currencyService.removeCurrency(UserSettings.Currency.EUR);
-                    UserSettings newSettings = new UserSettings();
-                    settingsForKeyboard.updateSettings(chatId, newSettings);
                     break;
                 }
                 case "PrivatBank": {
@@ -175,6 +116,37 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     settingsForKeyboard.updateSettings(chatId, newSettings);
                     break;
                 }
+
+                case "Currency":
+                    settingsForKeyboard.sendCurrencySettings(chatId);
+                    break;
+                case "USD": {
+                    currencyService.addCurrency(UserSettings.Currency.USD);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setCurrency(UserSettings.Currency.USD);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "EUR": {
+                    currencyService.addCurrency(UserSettings.Currency.EUR);
+                    UserSettings newSettings = new UserSettings();
+                    newSettings.setCurrency(UserSettings.Currency.EUR);
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove USD": {
+                    currencyService.removeCurrency(UserSettings.Currency.USD);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+                case "Remove EUR": {
+                    currencyService.removeCurrency(UserSettings.Currency.EUR);
+                    UserSettings newSettings = new UserSettings();
+                    settingsForKeyboard.updateSettings(chatId, newSettings);
+                    break;
+                }
+
                 case "Notification time": {
                     settingsForKeyboard.sendNotificationTimeSettings(chatId);
                     break;
@@ -221,9 +193,10 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     break;
                 }
             }
-
         }
     }
+
+}
 
     @Override
     public String getBotUsername() {

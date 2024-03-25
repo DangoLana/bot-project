@@ -122,7 +122,7 @@ public class BankService {
         String finalString = "";
         for (JsonMB rate : monoBankList) {
             String format = "";
-            format = bot.getNumberForDecimalPlaces().rateWithDecimalPlacesForMono(rate, format);
+           format  = bot.getNumberForDecimalPlaces().rateWithDecimalPlacesForMono(rate);
 
             if (rate.getCurrencyCodeA() == 840 && rate.getCurrencyCodeB() == 980) {
                 append = sb.append("UAH  USD ").append(" >>> ")
