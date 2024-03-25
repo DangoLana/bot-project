@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/SettingsForKeyboard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonMB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonNBU.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/json/JsonPB.java" afterDir="false" />
+    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="add default notify">
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/UserSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/utils/ConstantData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/utils/ConstantData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/TelegramBotApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/TelegramBotApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Notify/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/SendMessageOnTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Notify/SendMessageOnTime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,6 +34,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,22 +42,39 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2drTR7aZGeGr3VzmpCEcxBPbsds" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-core-17/currency-telegram-bot" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TelegramBotApp.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Javakurs/bot-project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="TelegramBotApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="19" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="org.example.bot.TelegramBotApp" />
-      <module name="bot-project" />
+      <module name="telegram-bot-project7" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.bot.*" />
@@ -79,6 +91,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -87,18 +106,102 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710765189198</updated>
+      <workItem from="1711279086675" duration="17464000" />
+      <workItem from="1711301991099" duration="810000" />
+      <workItem from="1711353839121" duration="15628000" />
+      <workItem from="1711399886296" duration="380000" />
     </task>
+    <task id="LOCAL-00001" summary="create MessageClass implements Job">
+      <option name="closed" value="true" />
+      <created>1711284151961</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711284151961</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add method sendMessageByTime">
+      <option name="closed" value="true" />
+      <created>1711284245183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711284245183</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add class SendMessageOnTime">
+      <option name="closed" value="true" />
+      <created>1711284268704</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711284268704</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add dependency quartz">
+      <option name="closed" value="true" />
+      <created>1711284294046</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711284294046</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add class SendMessageOnTime">
+      <option name="closed" value="true" />
+      <created>1711284978946</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711284978946</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add method sendMessageByTime">
+      <option name="closed" value="true" />
+      <created>1711285029501</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711285029501</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add default notify">
+      <option name="closed" value="true" />
+      <created>1711398704948</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711398704948</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="notify" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create MessageClass implements Job" />
+    <MESSAGE value="add dependency quartz" />
+    <MESSAGE value="add class SendMessageOnTime" />
+    <MESSAGE value="add method sendMessageByTime" />
+    <MESSAGE value="add default notify" />
+    <option name="LAST_COMMIT_MESSAGE" value="add default notify" />
   </component>
 </project>
