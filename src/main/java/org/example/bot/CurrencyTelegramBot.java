@@ -31,6 +31,9 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
         if (isMessagePresent(update) && update.getMessage().getText().equalsIgnoreCase(BOT_COMMAND_START)) {
             message.setText(BOT_COMMAND_GREETING);
             message.setReplyMarkup(setupBeginButton());
+            UserSettings userSettings = new UserSettings();
+            userSettings.setNotificationTime(9);
+            settingsForKeyboard.sendNotificationTimeSettings(chatId, String.valueOf(userSettings.getNotificationTime()));
             try {
                 execute(message);
             } catch (TelegramApiException e) {
@@ -38,7 +41,6 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
             }
 
         } else if (isMessagePresent(update)) {
-
             String text = update.getMessage().getText();
 
             switch (text) {
@@ -71,7 +73,9 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                     break;
                 }
                 case "Notification time": {
-                    settingsForKeyboard.sendNotificationTimeSettings(chatId);
+                    settingsForKeyboard.deletJob(chatId);
+                    settingsForKeyboard.createKeyBordTime(chatId);
+
                     break;
                 }
                 case "2":
@@ -80,6 +84,10 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
 
                     settingsForKeyboard.createSignAfterCommaKeyboard();
                     break;
+                }
+                case "off": {
+                    settingsForKeyboard.deletJob(chatId);
+
                 }
                 case "9":
                 case "10":
@@ -93,7 +101,7 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
                 case "18": {
                     UserSettings userSettings = new UserSettings();
                     userSettings.setNotificationTime(Integer.parseInt(text));
-                    settingsForKeyboard.sendNotificationTimeSettings(chatId);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
                     break;
                 }
 

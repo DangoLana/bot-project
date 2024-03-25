@@ -5,7 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.example.bot.settingsFORkeyboard.Notify.SendMessageOnTime;
+import org.example.notify.SendMessageOnTime;
 import org.example.json.JsonMB;
 import org.example.bot.CurrencyTelegramBot;
 import org.example.json.JsonPB;
