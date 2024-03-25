@@ -7,9 +7,6 @@ Z
 *src/main/java/org/example/json/JsonMB.java,c\b\cbd4d58f4cd39372328b4f9623140075a4aceaa0
 [
 +src/main/java/org/example/json/JsonNBU.java,7\4\7477ea0a6203b58fba2a63712bdc8ce8ea35b238
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 a

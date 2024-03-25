@@ -1,3 +1,7 @@
 
-P
-java:S1118":Add a private constructor to hide the implicit public one.(“›§¡
+v
+java:S1118":Add a private constructor to hide the implicit public one.(“›§¡J$ccac2d66-f445-45af-a2de-8a1391957b35
+~
+java:S1117";Rename "BOT_NAME" which hides the field declared at line 8.(›•èê8¡±Ø¦ç1J$00a9d795-c433-4e7b-97ec-28f37fe00772
+
+java:S1117"<Rename "BOT_TOKEN" which hides the field declared at line 9.(çíû¿8¨±Ø¦ç1J$24981f3e-1853-4d5c-8981-048b9bc82f4a
