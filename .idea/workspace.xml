@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="add default notify">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/CurrencyTelegramBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/TelegramBotApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/TelegramBotApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Notify/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/SendMessageOnTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/bot/settingsFORkeyboard/Notify/SendMessageOnTime.java" afterDir="false" />
-    </list>
+    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="add notify methods and files" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +100,7 @@
       <workItem from="1711279086675" duration="17464000" />
       <workItem from="1711301991099" duration="810000" />
       <workItem from="1711353839121" duration="15628000" />
-      <workItem from="1711399886296" duration="380000" />
+      <workItem from="1711399886296" duration="1673000" />
     </task>
     <task id="LOCAL-00001" summary="create MessageClass implements Job">
       <option name="closed" value="true" />
@@ -167,7 +158,23 @@
       <option name="project" value="LOCAL" />
       <updated>1711398704948</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add notify methods">
+      <option name="closed" value="true" />
+      <created>1711400457078</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711400457078</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add notify methods and files">
+      <option name="closed" value="true" />
+      <created>1711400712322</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711400712322</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +209,8 @@
     <MESSAGE value="add class SendMessageOnTime" />
     <MESSAGE value="add method sendMessageByTime" />
     <MESSAGE value="add default notify" />
-    <option name="LAST_COMMIT_MESSAGE" value="add default notify" />
+    <MESSAGE value="add notify methods" />
+    <MESSAGE value="add notify methods and files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add notify methods and files" />
   </component>
 </project>
