@@ -1,12 +1,12 @@
 
+
+java:S1192P"NDefine a constant instead of duplicating this literal "Settings Menu" 5 times.(Ú½ÍøÿÿÿÿJ$465cd919-5554-493f-af2d-e7f934088527
+Š
+java:S1192Q"IDefine a constant instead of duplicating this literal "Get Info" 5 times.(éŒèÉüÿÿÿÿJ$1e5c657e-18c8-4817-9065-5d69c8b8f458
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’òƒJ$e5e8b10a-b428-4199-83af-cbeb51475d89
 i
-java:S1192P"NDefine a constant instead of duplicating this literal "Settings Menu" 5 times.(Ú½Íøÿÿÿÿ
-d
-java:S1192Q"IDefine a constant instead of duplicating this literal "Get Info" 5 times.(éŒèÉüÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’òƒ
-C
-java:S1172"-Remove this unused method parameter "chatId".(·öŠµ
-E	java:S106$"+Replace this use of System.out by a logger.(»¬ûŞùÿÿÿÿ
-@	java:S106%"+Replace this use of System.out by a logger.(Ş‹Ş©
-@	java:S106&"+Replace this use of System.out by a logger.(ÏÉ’„
-@	java:S106'"+Replace this use of System.out by a logger.(…ªù±
+java:S1172"-Remove this unused method parameter "chatId".(·öŠµJ$cf0ce5e9-88f6-4fb5-836d-234f3bd4ec8f
+k	java:S106$"+Replace this use of System.out by a logger.(»¬ûŞùÿÿÿÿJ$86011287-4087-41c9-897b-58fdc500e469
+f	java:S106%"+Replace this use of System.out by a logger.(Ş‹Ş©J$3771bb54-914a-477f-abe2-ba84df89a0ed
+f	java:S106&"+Replace this use of System.out by a logger.(ÏÉ’„J$fc88b50e-9ba8-4ba9-8e3e-f490f7f45737
+f	java:S106'"+Replace this use of System.out by a logger.(…ªù±J$fe38416b-f805-4bfe-a7d5-904d9a22491e

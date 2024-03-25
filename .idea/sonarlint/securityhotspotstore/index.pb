@@ -15,8 +15,6 @@ a
 1src/main/java/org/example/utils/ConstantData.java,1\3\13db4df62d439e7af31cd8ece8a01af43af2edec
 Z
 *src/main/java/org/example/json/JsonMB.java,c\b\cbd4d58f4cd39372328b4f9623140075a4aceaa0
-c
-3src/main/java/org/example/bank/CurrencyService.java,8\e\8e3f4b5c36ce8586404cc4890a7eadb816d7f594
 y
 Isrc/main/java/org/example/settingsFORkeyboard/NumberForDecimalPlaces.java,5\8\5877ed081c55c5456e23328c18dfda0b9abfd746
 :

@@ -2,12 +2,12 @@
 ™
 java:S1192B"WDefine a constant instead of duplicating this literal "Exchange rates data:
 
-" 3 times.(ÖóÑ{8©Ã—ç1J$c91f7ba9-01d1-400f-8fa5-e68154248829
+" 3 times.(ÖóÑ{8©Ã—ç1J$172110d4-f127-407e-925b-7c0c0e783bdd
 
-java:S1192C"GDefine a constant instead of duplicating this literal "Bank: " 3 times.(ê³ÅÖşÿÿÿÿ8©Ã—ç1J$1f79b8bb-4de7-41d0-b6dc-61ed02119afd
-r	java:S106`"+Replace this use of System.out by a logger.(·ÚÔùÿÿÿÿ8üÃ—ç1J$da4702bb-3dc0-49ee-8fc3-dc8a369f5a56
-m	java:S106e"+Replace this use of System.out by a logger.(Ğ´«—8ıÃ—ç1J$b57b1f4b-ea1f-4f5a-8d10-bc22d52e6044
-m	java:S106h"+Replace this use of System.out by a logger.(²ò°ô8¥Ä—ç1J$f167ead6-caa6-4994-876e-fa510106e593
-m	java:S106l"+Replace this use of System.out by a logger.(ÎØĞ¸8¦Ä—ç1J$942bd5e7-f596-4c16-8cc1-b38323e088ad
-n	java:S106Š"+Replace this use of System.out by a logger.(õšÌú8´Ä—ç1J$b95d40cd-9c24-4bcb-98e9-18788883c57b
-n	java:S106"+Replace this use of System.out by a logger.(¬†¯¦8ÄÄ—ç1J$7c9f3ba1-fdef-4a9d-abc0-9d2bb351b24f
+java:S1192C"GDefine a constant instead of duplicating this literal "Bank: " 3 times.(ê³ÅÖşÿÿÿÿ8©Ã—ç1J$807e7ee4-7d88-4b50-9a9d-c4f7fd57ac03
+r	java:S106`"+Replace this use of System.out by a logger.(·ÚÔùÿÿÿÿ8üÃ—ç1J$4f6ad3c5-b0b6-414c-8ed1-e29d21c36adf
+m	java:S106e"+Replace this use of System.out by a logger.(Ğ´«—8ıÃ—ç1J$c72883e5-745c-41fe-8024-21596e79a9ec
+m	java:S106h"+Replace this use of System.out by a logger.(²ò°ô8¥Ä—ç1J$a7c0f117-97e3-47b4-b353-d8c39f440253
+m	java:S106l"+Replace this use of System.out by a logger.(ÎØĞ¸8¦Ä—ç1J$40fa0b28-7881-4ad1-9645-17963a44b3ab
+n	java:S106Š"+Replace this use of System.out by a logger.(õšÌú8´Ä—ç1J$0b62088e-d1a1-4bb8-9e64-2bfdf6f8fc78
+n	java:S106"+Replace this use of System.out by a logger.(¬†¯¦8ÄÄ—ç1J$914de9cb-2303-4a48-a565-32f0c24e12c0
