@@ -3,8 +3,6 @@ package org.example.utils;
 public class ConstantData {
 
 
-    public static final String BOT_NAME = "";
-    public static final String BOT_TOKEN = "";
     public static final String BOT_NAME = "BotBotCurrencyBotBot";
     public static final String BOT_TOKEN = "6484255908:AAG9o6qItoemmvgkfJxfWozlG8bxb8LupFA";
     public static final String BOT_COMMAND_START = "/start";
