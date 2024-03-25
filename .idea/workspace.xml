@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.workspace.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.workspace_BASE_745.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.workspace_LOCAL_745.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.workspace_REMOTE_745.xml.swp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace_BACKUP_745.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace_BASE_745.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace_LOCAL_745.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace_REMOTE_745.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/13db4df62d439e7af31cd8ece8a01af43af2edec" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/3/13db4df62d439e7af31cd8ece8a01af43af2edec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ef7ef32d-6b9f-4be7-8d83-d83e610af2ff" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
