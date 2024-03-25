@@ -1,0 +1,12 @@
+
+b
+java:S1192%"GDefine a constant instead of duplicating this literal "#.0000" 3 times.(£³½¼ùÿÿÿÿ
+\
+java:S1192 "FDefine a constant instead of duplicating this literal "#.000" 3 times.(Œ¦É÷
+b
+java:S1192E"LDefine a constant instead of duplicating this literal "   >>>     " 3 times.(’ú²š
+^
+java:S1192E"HDefine a constant instead of duplicating this literal "UAH || " 3 times.(’ú²š
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’òƒ
+E	java:S106;"+Replace this use of System.out by a logger.(î§Ÿ¹úÿÿÿÿ
+@	java:S106R"+Replace this use of System.out by a logger.(Ğ´«—

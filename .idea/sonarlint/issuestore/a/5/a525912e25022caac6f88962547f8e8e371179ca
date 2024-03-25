@@ -1,0 +1,12 @@
+
+i
+java:S1192P"NDefine a constant instead of duplicating this literal "Settings Menu" 5 times.(Ú½Íøÿÿÿÿ
+d
+java:S1192Q"IDefine a constant instead of duplicating this literal "Get Info" 5 times.(éŒèÉüÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(’òƒ
+C
+java:S1172"-Remove this unused method parameter "chatId".(·öŠµ
+E	java:S106$"+Replace this use of System.out by a logger.(»¬ûŞùÿÿÿÿ
+@	java:S106%"+Replace this use of System.out by a logger.(Ş‹Ş©
+@	java:S106&"+Replace this use of System.out by a logger.(ÏÉ’„
+@	java:S106'"+Replace this use of System.out by a logger.(…ªù±
