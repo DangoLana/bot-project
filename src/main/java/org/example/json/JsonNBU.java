@@ -1,8 +1,6 @@
 package org.example.json;
 
 import lombok.Data;
-import org.example.model.UserSettings;
-
 import java.util.Currency;
 
 @Data
