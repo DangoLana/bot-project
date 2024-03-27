@@ -14,7 +14,6 @@ import java.util.Set;
 
 @Data
 public class NumberForDecimalPlaces {
-
     private final Set<UserSettings.DecimalPlaces> hashSetDecimalPlaces = new HashSet<>(1);
     private final CurrencyTelegramBot bot;
 
@@ -44,7 +43,7 @@ public class NumberForDecimalPlaces {
     }
 
     public String rateWithDecimalPlacesForMono(JsonMB rate) {
-      String format = "";
+        String format = "";
         for (UserSettings.DecimalPlaces places : hashSetDecimalPlaces) {
             if (places == UserSettings.DecimalPlaces.TWO) {
                 DecimalFormat df = new DecimalFormat("#.00");
@@ -58,7 +57,6 @@ public class NumberForDecimalPlaces {
                 DecimalFormat df = new DecimalFormat("#.0000");
                 format = df.format(rate.getRateBuy());
             }
-            System.out.println("format = " + format);
         }
         return format;
     }
@@ -68,7 +66,7 @@ public class NumberForDecimalPlaces {
             if (places == UserSettings.DecimalPlaces.TWO) {
                 DecimalFormat df = new DecimalFormat("#.00");
                 String format = df.format(rate.getBuy());
-                append = sb.append("UAH || ").append(rate.getCcy()).append("   >>>     ").append(format).append("\n\n").toString();
+                append = sb.append("UAH || ").append(rate.getCcy()).append("  >>>  ").append(format).append("\n\n").toString();
             }
             if (places == UserSettings.DecimalPlaces.THREE) {
                 DecimalFormat df = new DecimalFormat("#.000");
@@ -81,7 +79,6 @@ public class NumberForDecimalPlaces {
                 append = sb.append("UAH || ").append(rate.getCcy()).append("   >>>     ").append(format).append("\n\n").toString();
             }
         }
-        System.out.println("append = " + append);
         return append;
     }
 
@@ -89,5 +86,6 @@ public class NumberForDecimalPlaces {
         hashSetDecimalPlaces.clear();
         hashSetDecimalPlaces.add(decimalPlaces);
     }
+
 
 }

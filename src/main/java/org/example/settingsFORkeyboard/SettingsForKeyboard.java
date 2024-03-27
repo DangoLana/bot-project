@@ -5,6 +5,7 @@ import lombok.Data;
 import org.example.bot.CurrencyTelegramBot;
 import org.example.model.UserSettings;
 import org.example.utils.ConstantData;
+import org.quartz.SchedulerException;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -25,27 +26,43 @@ public class SettingsForKeyboard {
     private UserSettings.ChoiceBank selectedBank;
     private UserSettings.Currency selectedCurrency;
     private UserSettings.DecimalPlaces decimalPlaces;
+    private String notificationTime;
 
     public SettingsForKeyboard(CurrencyTelegramBot bot) {
         this.bot = bot;
     }
 
     public void updateSettings(String chatId, UserSettings newSettings) {
-        // Оновлюємо внутрішні дані на основі нових налаштувань
+
         this.selectedBank = newSettings.getBanks();
         this.selectedCurrency = newSettings.getCurrency();
         this.decimalPlaces = newSettings.getDecimalPlaces();
-        // Викликаємо метод для виведення оновлених налаштувань у консоль (для перевірки)
-        System.out.println("Updated settings:");
-        System.out.println("Selected bank: " + bot.getBankService().getHashSetBank());
-        System.out.println("Selected currency: " + bot.getCurrencyService().getHashSetCurrencies());
-        System.out.println("Decimal places: " + decimalPlaces);
+        this.notificationTime = newSettings.getNotificationTime();
+        try {
+            StringBuilder messageText = new StringBuilder();
+            messageText.append("Updated settings:\n")
+                    .append("Selected bank: ").append(bot.getBankService().getHashSetBank()).append("\n")
+                    .append("Selected currency: ").append(bot.getCurrencyService().getHashSetCurrencies()).append("\n")
+                    .append("Decimal places: ").append(decimalPlaces).append("\n")
+                    .append("Notification time: ").append(notificationTime).append("\n\n")
+                    .append("If the selected time has already passed,\n the message will arrive tomorrow.\n" +
+                            "To change the time,\n push the off and try again. ");
+
+            SendMessage message = new SendMessage();
+            message.setText(messageText.toString());
+            message.setChatId(chatId);
+            bot.execute(message);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+
+        }
 
     }
 
-    public void sendExchangeRates(String chatId) {
+    public String sendExchangeRates(String chatId) {
+        StringBuilder messageText = new StringBuilder();
         try {
-            StringBuilder messageText = bot.getBankService().getFinalStringBuilder();
+            messageText = bot.getBankService().getFinalStringBuilder();
             SendMessage message = new SendMessage();
             message.setText(messageText.toString());
             message.setChatId(chatId);
@@ -54,6 +71,7 @@ public class SettingsForKeyboard {
             e.printStackTrace();
 
         }
+        return messageText.toString();
     }
 
     public void sendSettingsMenu(String chatId) {
@@ -90,16 +108,17 @@ public class SettingsForKeyboard {
     }
 
 
-    public void sendNotificationTimeSettings(String chatId) {
+    public void sendNotificationTimeSettings(String chatId, String text) {
         SendMessage message = new SendMessage();
-        message.setChatId(String.valueOf(chatId));
+        message.setChatId(chatId);
         message.setText("Select notification time");
         message.setReplyMarkup(createNotificationTimeKeyboard());
-
         try {
             bot.execute(message);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
+
+            bot.getSendMessageOnTime().sendMessageByTime(Integer.parseInt(text), Long.valueOf(chatId));
+        } catch (SchedulerException | TelegramApiException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -236,6 +255,7 @@ public class SettingsForKeyboard {
         return keyboardMarkup;
     }
 }
+
 
 
 

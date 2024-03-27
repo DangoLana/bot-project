@@ -1,11 +1,14 @@
+
 package org.example.bot;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.SneakyThrows;
 import org.example.bank.BankService;
-import org.example.currency.CurrencyService;
 
-import org.example.notificationTime.SendMessageOnTime;
+
+import org.example.currency.CurrencyService;
+import org.example.notification.SendMessageOnTime;
+
 import org.example.settingsFORkeyboard.NumberForDecimalPlaces;
 import org.example.settingsFORkeyboard.SettingsForKeyboard;
 import org.example.model.UserSettings;
@@ -18,7 +21,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.example.utils.ConstantData.*;
 
 
@@ -26,14 +28,14 @@ import static org.example.utils.ConstantData.*;
 @Data
 public class CurrencyTelegramBot extends TelegramLongPollingBot {
     private final SettingsForKeyboard settingsForKeyboard;
-    private final CurrencyService currencyService;
+    private  final CurrencyService currencyService;
     private final BankService bankService;
     private final NumberForDecimalPlaces numberForDecimalPlaces;
     private final SendMessageOnTime sendMessageOnTime;
     public CurrencyTelegramBot() {
         this.sendMessageOnTime = new SendMessageOnTime(this);
         this.settingsForKeyboard = new SettingsForKeyboard(this);
-        this.currencyService = new CurrencyService(this);
+        this.currencyService=new CurrencyService(this);
         this.bankService = new BankService(this);
         this.numberForDecimalPlaces = new NumberForDecimalPlaces(this);
     }
@@ -174,25 +176,80 @@ public class CurrencyTelegramBot extends TelegramLongPollingBot {
         if (isMessagePresent(update)) {
             String text = update.getMessage().getText();
             switch (text) {
-                case "9":
-                case "10":
-                case "11":
-                case "12":
-                case "13":
-                case "14":
-                case "15":
-                case "16":
-                case "17":
+                case "9":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("9");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "10":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("10");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "11":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("11");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "12":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("12");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "13":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("13");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "14":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("14");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "15":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("15");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "16":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("16");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
+                case "17":{
+                    UserSettings userSettings = new UserSettings();
+                    userSettings.setNotificationTime("17");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
+                    settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
+                    break;
+                }
                 case "18": {
                     UserSettings userSettings = new UserSettings();
-                    userSettings.setNotificationTime(Integer.parseInt(text));
+                    userSettings.setNotificationTime("18");
+                    settingsForKeyboard.updateSettings(chatId, userSettings);
                     settingsForKeyboard.sendNotificationTimeSettings(chatId, text);
                     break;
                 }
                 case "off": {
                     sendMessageOnTime.deleteJob();
                     UserSettings userSettings = new UserSettings();
-                    userSettings.setNotificationTime(9);
+                    userSettings.setNotificationTime("9");
                     settingsForKeyboard.updateSettings(chatId, userSettings);
                     break;
                 }

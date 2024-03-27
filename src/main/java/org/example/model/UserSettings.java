@@ -7,7 +7,7 @@ public class UserSettings  {
     private DecimalPlaces decimalPlaces;
     private Currency currency;
     private ChoiceBank banks;
-    private int notificationTime;
+    private String notificationTime;
 
 
     // Ініціалізація полів за замовчуванням, якщо юзер ше не вибрав
@@ -15,7 +15,7 @@ public class UserSettings  {
         decimalPlaces = DecimalPlaces.TWO;
         currency = Currency.USD;
         banks = ChoiceBank.NBU;
-        notificationTime = 9;
+        notificationTime = "9";
     }
 
     public enum Currency {
