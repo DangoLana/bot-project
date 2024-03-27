@@ -50,6 +50,9 @@ public class BankService {
 
     public void removeBank(UserSettings.ChoiceBank selectedBank) {
         hashSetBank.remove(selectedBank);
+        if ( hashSetBank.isEmpty() ) {
+            hashSetBank.add(UserSettings.ChoiceBank.NBU);
+        }
 
     }
 
@@ -94,19 +97,17 @@ public class BankService {
         StringBuilder sb = new StringBuilder();
         String append = "";
         Set<JsonPB> jsonPBSet = new HashSet<>(privatBankList);
-        System.out.println(" PB   jsonPBSet = " + jsonPBSet);
         String finalString = "";
 
         for (JsonPB rate : jsonPBSet) {
             append = bot.getNumberForDecimalPlaces().rateWihthDecimalPlacesPB(sb, append, rate);
-            System.out.println("append = " + append);
+
         }
         ArrayList<String> list = new ArrayList<>(List.of(append.split("\n\n")));
-        System.out.println("list = " + list);
         for (String s : list) {
 
             finalString = bot.getCurrencyService().chooseCurrenciesForSettingsPB(stringBuilder, s);
-            System.out.println("finalString = " + finalString);
+
         }
         return finalString;
 
@@ -122,7 +123,7 @@ public class BankService {
         String finalString = "";
         for (JsonMB rate : monoBankList) {
             String format = "";
-           format  = bot.getNumberForDecimalPlaces().rateWithDecimalPlacesForMono(rate);
+            format  = bot.getNumberForDecimalPlaces().rateWithDecimalPlacesForMono(rate);
 
             if (rate.getCurrencyCodeA() == 840 && rate.getCurrencyCodeB() == 980) {
                 append = sb.append("UAH  USD ").append(" >>> ")
@@ -136,10 +137,10 @@ public class BankService {
         ArrayList<String> list = new ArrayList<>(List.of(append.split("\n\n")));
         StringBuilder sbRates = new StringBuilder();
         for (String s : list) {
-            System.out.println("s = " + s);
-            finalString =bot.getCurrencyService().chooseCurrenciesForSettingsMono(sbRates, s);
+
+            bot.getCurrencyService().chooseCurrenciesForSettingsMono(sbRates, s);
         }
-        return finalString;
+        return sbRates.toString();
 
     }
 
@@ -153,9 +154,9 @@ public class BankService {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 String currencyCode = obj.getString("cc");
-                finalString = bot.getCurrencyService().chooseCurrenciesForSettings(sb, obj, currencyCode);
+                finalString = bot.getCurrencyService().chooseCurrenciesForSettingsNBU(sb, obj, currencyCode);
             }
-            System.out.println(" NBU sb = " + sb);
+
 
         } catch (
                 JSONException e) {
